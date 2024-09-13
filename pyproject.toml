@@ -1,0 +1,62 @@
+[project]
+readme = 'README.md'
+name = "Template"
+version = '0.0.1'
+authors = [
+  { name="", email=""},
+]
+description = ""
+requires-python = ">=3.8"
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.packages.find]
+where = ['src']
+
+[build-system]
+requires = [
+    "setuptools>=61.0",
+    "importlib_resources>=6.1.1",
+]
+build-backend = "setuptools.build_meta"
+
+
+[tool.isort]
+profile = "black"
+multi_line_output = 3
+line_length = 79
+
+[tool.black]
+line-length = 79
+include = '\.pyi?$'
+exclude = '''
+/(
+    \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | _build
+  | buck-out
+  | build
+  | dist
+)/
+'''
+
+force-exclude = '''
+/(
+    \.toml
+  | \.yaml
+  | \.yml
+)/
+'''
+
+[tool.pytest.ini_options]
+pythonpath = [
+    "src",
+    "src/template/"
+]
+testpaths = [
+    "src/test",
+]

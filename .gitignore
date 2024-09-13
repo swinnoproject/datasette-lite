@@ -1,0 +1,14 @@
+*tsv
+*txt
+*zip
+__pycache__/
+*pdf
+*html
+*css
+*log
+*xml
+2*/
+*sqlite3
+*db
+build/
+*.egg-info/
