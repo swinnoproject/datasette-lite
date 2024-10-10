@@ -1,0 +1,91 @@
+title: Welcome to a publich interface for exploring the SWINNO data!
+description_html: |-
+
+  <p>SWINNo is a VINNOVA-financed research project hosted at the Department of Economic History
+  at Lund University, Lund, Sweden.
+
+  <p>At the core of SWINNO is a database of Swedish innovations constructed
+  through the LBIO (Literature Based Innovation Output) method.
+
+  <p>The data used here is a pubiicised version of the database published on
+  <a href="https://zenodo.org/records/13893763">Zenodo</a>
+
+  <p>If you find a problem or have a suggestion for what should be added to
+  this interface please
+  <a href="https://github.com/swinnoproject/datasette-lite/issues/new/choose">report an issue</a>
+
+  <p> Click "Content" below to start exploring the data.
+
+  <p>This interface relies on
+  <a href="https://github.com/simonw/datasette-lite">Datasette-lite<a>
+  to run in your browser. If you rather run a local instance of Datasette
+  plese see <a href="https://github.com/swinnoproject/datasette-lite">this repository<a>
+  for instructions.
+
+license: # todo: add license
+license_url: # todo: add license url
+source: SWINNO-project
+source_url: https://www.swedishinnovationdata.se
+
+
+databases:
+  content:
+    title: SWINNO
+    description_html: |-
+      For the underlying database we are using a SQLite3 format.
+
+      <p> Under the header <bf>Queries</b> you will find a short list of
+      standard queries that we have prepared.
+
+      <p> Below that each data-table is listed, and if you click it you will
+      be taken into a view of that table, with all its columnt.
+
+      <p> In the field <b>Custom SQL query</b> you can write your own queries
+      to select, modify or even delete data. Please visit our
+      <a href="https://swinnoproject.github.io/living_codebook/">codebook</a>
+       for details on which tables and fields are available.
+    tables:
+      innovation_article:
+        hidden: true
+      innovation_entity:
+        hidden: true
+      sinno_id1_translator:
+        hidden: true
+
+    queries:
+      Timeline of commercialized and patented innovations:
+        sql: |-
+          select
+            year,
+            count(*) as Innovations,
+            sum(patented) as patented_innovations
+          from
+            innovation
+          group by
+            year
+          having
+            year between 1970
+            and 2020
+          order by
+            year
+        descriptioin_html: |-
+          This view lists the number of commerxialized and patented innovations
+          from 1970 to 2020.
+      Innovative firms:
+        sql: |-
+          select
+            e.name as name,
+            count(*) as num_innovations
+          from
+            innovation as i
+            join innovation_entity as ie on i.id == ie.innovation_id
+            join entity as e on e.id == ie.entity_id
+          where
+            ie.type == 1
+            and name != "N/A"
+          group by
+            name
+          order by
+            num_innovations desc;
+        description_html:
+          Lists firms in order of how many innovations they have produced.

@@ -1,11 +1,12 @@
 [project]
 readme = 'README.md'
-name = "Template"
+name = "SWINNO-DatasetteLite"
 version = '0.0.1'
 authors = [
-  { name="", email=""},
+  { name="@mathjoha", email="Mathias.Johansson@kultur.lu.se"},
 ]
-description = ""
+description = "Connecting the public version of SWINNO with DatasetteLite
+to create an interface for exploring the data."
 requires-python = ">=3.8"
 
 [tool.setuptools]
@@ -55,8 +56,8 @@ force-exclude = '''
 [tool.pytest.ini_options]
 pythonpath = [
     "src",
-    "src/template/"
+    "src/swinno-datasette-lite/"
 ]
 testpaths = [
-    "src/test",
+    "tests",
 ]

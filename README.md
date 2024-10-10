@@ -1,38 +1,48 @@
-# Template repository
+[![](https://img.shields.io/badge/ExploreData-DatasetteLite-blue)](https://lite.datasette.io/?metadata=https://raw.githubusercontent.com/swinnoproject/datasette-lite/refs/heads/main/metadata.yml&url=https://zenodo.org/api/records/13893763/files/SWINNO.UDIT.sqlite3/content
+)
 
-This is a template repository prepared for python-based projects in
-[swinnoproject](https://github.com/swinnoproject).
+# SWINNO and Datasette(Lite)
 
-Before your first commit I suggest that you:
+This repository hosts a metadata file that is
+intended to be used with [Datasette](https://github.com/simonw/datasette) or [DatasetteLite](https://github.com/simonw/datasette-lite) to enable explorations of the [SWINNO data](https://doi.org/10.5281/zenodo.13893763)
 
-1. Rename `/src/template/ `
-2. Update `pyproject.toml`:
+## DatasetteLite
 
-```
-[3] name = "Template"`
-[6] name="", email=""`
-[8] description = ""`
-[58] "src/template/" (to match the name from step 1)
-```
-3. Update `.github/workflows/auto_assign.yml`:
-```
-[16] repo-token: ${{ secrets.GITHUB_TOKEN }}
-[17] assignee: USERNAME
-```
+DatasetteLite is a lightweight version of Datasette
+that runs in your browser. It does not require you
+to download or install anything -- but it can take
+a few minutes before everything is set up.
 
-4. Install pre-commit and:
+## Datasette
 
-   a. (Optionally) update `.pre-commit-config.yaml`, by default it will:
-    - on commit:
-        1. isort (sort imports)
-        2. black (format code)
-    - pre-push:
-        1. Make sure that it passes all existisng pytests
-        2. Remove trailing whitespaces
-        3. Fix enf of files
-        4. Check yaml files
-        5. Check if any large files are added  by mistake.
+Datasette can also be installed and run locally thorugh `brew` or it can be installed as a python package through pip.
 
-    b. Initialize pre-commit for this repository
+On a mac with homebrew installed you can:
 
-5. Change the contents in this file.
+```brew install datasette```
+
+On other devices you first need to install [Python](https://www.python.org/) and then you can install datasette through the Python package infrastructure `pip`:
+
+```python -m pip install datasette```
+
+Or through the `pipx`:
+
+```pipx install datasette```
+
+For more details on installation and basic usage see the datasette code repository: https://github.com/simonw/datasette
+
+### Download the data
+
+The latest version of the SQLite3 file can always be downloaded from [zenodo](https://doi.org/10.5281/zenodo.13893763).
+
+### metadata.yml
+
+The `metadata.yml` file contains some descriptive information about the project as well as some standardised queries to get you started with exploring the data. In order to load it with your database
+
+To load the metadata file you simply have to run:
+
+```datasette /path/to/database.file --metadata /path/to/metadata.yml```
+
+
+
+metadata = https://raw.githubusercontent.com/swinnoproject/datasette-lite/refs/heads/main/metadata.yml
