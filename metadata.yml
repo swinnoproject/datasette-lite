@@ -1,8 +1,9 @@
 title: Welcome to a publich interface for exploring the SWINNO data!
 description_html: |-
 
-  <p>SWINNo is a VINNOVA-financed research project hosted at the Department
-  of Economic History at Lund University, Lund, Sweden.
+  <p>SWINNo is a VINNOVA-financed research project hosted at the
+  <a href="https://www.lusem.lu.se/economic-history/databases/swinno">
+  Department of Economic History</a> at Lund University, Lund, Sweden.
 
   <p>At the core of SWINNO is a database of Swedish innovations constructed
   through the LBIO (Literature Based Innovation Output) method.
@@ -23,9 +24,9 @@ description_html: |-
   plese see the readme of
   <a href="https://github.com/swinnoproject/datasette-lite">this repository<a>
   for instructions.
-
 license: Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)
-license_url: https://creativecommons.org/licenses/by-nc/4.0/source: SWINNO-project
+license_url: https://creativecommons.org/licenses/by-nc/4.0/
+source: SWINNO-project
 source_url: https://www.swedishinnovationdata.se
 
 
@@ -88,6 +89,23 @@ databases:
             name
           order by
             num_innovations desc;
-        description_html:
+        description_html: |-
           Lists of firms in order of how many of their innovation are captured
           in the the database.
+      Named innovations with most articles:
+        sql: |-
+          select
+            i.id as inn_id,
+            name_sv,
+            count(*) as num_articles
+          from
+            innovation as i
+            join innovation_article as ia on i.id == ia.innovation_id
+          where name_sv != ""
+          group by
+            inn_id
+          order by
+            num_articles desc
+        description_html: |-
+          Lists of named innovations in order of how many articles that
+          mention them.
