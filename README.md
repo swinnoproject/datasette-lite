@@ -42,7 +42,3 @@ The `metadata.yml` file contains some descriptive information about the project 
 To load the metadata file you simply have to run:
 
 ```datasette /path/to/database.file --metadata /path/to/metadata.yml```
-
-
-
-metadata = https://raw.githubusercontent.com/swinnoproject/datasette-lite/refs/heads/main/metadata.yml

@@ -1,13 +1,14 @@
 title: Welcome to a publich interface for exploring the SWINNO data!
 description_html: |-
 
-  <p>SWINNo is a VINNOVA-financed research project hosted at the Department of Economic History
-  at Lund University, Lund, Sweden.
+  <p>SWINNo is a VINNOVA-financed research project hosted at the Department
+  of Economic History at Lund University, Lund, Sweden.
 
   <p>At the core of SWINNO is a database of Swedish innovations constructed
   through the LBIO (Literature Based Innovation Output) method.
 
   <p>The data used here is a pubiicised version of the database published on
+  2024-10-04 on
   <a href="https://zenodo.org/records/13893763">Zenodo</a>
 
   <p>If you find a problem or have a suggestion for what should be added to
@@ -19,12 +20,12 @@ description_html: |-
   <p>This interface relies on
   <a href="https://github.com/simonw/datasette-lite">Datasette-lite<a>
   to run in your browser. If you rather run a local instance of Datasette
-  plese see <a href="https://github.com/swinnoproject/datasette-lite">this repository<a>
+  plese see the readme of
+  <a href="https://github.com/swinnoproject/datasette-lite">this repository<a>
   for instructions.
 
-license: # todo: add license
-license_url: # todo: add license url
-source: SWINNO-project
+license: Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)
+license_url: https://creativecommons.org/licenses/by-nc/4.0/source: SWINNO-project
 source_url: https://www.swedishinnovationdata.se
 
 
@@ -69,9 +70,9 @@ databases:
           order by
             year
         descriptioin_html: |-
-          This view lists the number of commerxialized and patented innovations
+          This view lists the number of commercialized and patented innovations
           from 1970 to 2020.
-      Innovative firms:
+      Most innovative firms:
         sql: |-
           select
             e.name as name,
@@ -88,4 +89,5 @@ databases:
           order by
             num_innovations desc;
         description_html:
-          Lists firms in order of how many innovations they have produced.
+          Lists of firms in order of how many of their innovation are captured
+          in the the database.
