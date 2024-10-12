@@ -55,6 +55,49 @@ databases:
         hidden: true
 
     queries:
+      Find innovation by name:
+        sql: |-
+          select
+            id,
+            name_sv,
+            name_en,
+            year,
+            desc_sv
+          from
+            innovation
+          where
+            name_sv like "%" || :name || "%"
+            or
+            name_en like "%" || :name || "%"
+
+          order by
+            year
+        descriptioin_html: |-
+          This view lists the number of commercialized and patented innovations
+          from 1970 to 2020.
+      Find innovation by firm name:
+        sql: |-
+          select
+            i.id as innovation_id,
+            name_sv,
+            name_en,
+            year,
+            desc_sv,
+            group_concat(variantname) as firm_name
+          from
+            innovation as i
+            join innovation_entity as ei on i.id == ei.innovation_id
+            and ei.type == 1
+            join name_variant as nv on nv.source_id == ei.entity_id
+          where
+            variantname like "%" || :name || "%"
+          group by
+            innovation_id
+          order by
+            year
+        descriptioin_html: |-
+          This view lists the number of commercialized and patented innovations
+          from 1970 to 2020.
       Timeline of commercialized and patented innovations:
         sql: |-
           select
