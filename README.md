@@ -1,5 +1,6 @@
-[![](https://img.shields.io/badge/ExploreData-DatasetteLite-blue)](https://lite.datasette.io/?metadata=https://raw.githubusercontent.com/swinnoproject/datasette-lite/refs/heads/main/metadata.yml&url=https://zenodo.org/api/records/13893763/files/SWINNO.UDIT.sqlite3/content
-)
+[![](https://img.shields.io/badge/ExploreData-DatasetteLite-blue)](https://lite.datasette.io/?metadata=https://raw.githubusercontent.com/swinnoproject/datasette-lite/refs/heads/main/metadata.yml&url=https://zenodo.org/api/records/13893763/files/SWINNO.UDIT.sqlite3/content)
+<a href="https://creativecommons.org/licenses/by-nc/4.0/"><img decoding="async" loading="eager" src="https://mirrors.creativecommons.org/presskit/buttons/88x31/png/by-nc.png" width="71" height="25" align="right"></a>
+
 
 # SWINNO and Datasette(Lite)
 
@@ -42,3 +43,8 @@ The `metadata.yml` file contains some descriptive information about the project 
 To load the metadata file you simply have to run:
 
 ```datasette /path/to/database.file --metadata /path/to/metadata.yml```
+
+# License
+
+This repository is published under a Creative Commons Attribution-NonCommercial
+4.0 International license [CC BY-NC 4.0 license](/LICENSE).
