@@ -93,6 +93,7 @@ databases:
             left outer join name_variant as nv on nv.source_id == ei.entity_id
           where
             name like "%" || :name || "%"
+            or variantname like "%" || :name || "%"
           group by
             innovation_id
           order by
