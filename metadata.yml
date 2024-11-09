@@ -83,14 +83,17 @@ databases:
             name_en,
             year,
             desc_sv,
-            group_concat(variantname) as firm_name
+            name as firm_name,
+            group_concat(variantname) as firm_name_variants
           from
             innovation as i
             join innovation_entity as ei on i.id == ei.innovation_id
             and ei.type == 1
-            join name_variant as nv on nv.source_id == ei.entity_id
+            join entity as e on e.id == ei.entity_id
+            left outer join name_variant as nv on nv.source_id == ei.entity_id
           where
-            variantname like "%" || :name || "%"
+            name like "%" || :name || "%"
+            or variantname like "%" || :name || "%"
           group by
             innovation_id
           order by
