@@ -1,4 +1,4 @@
-[![](https://img.shields.io/badge/ExploreData-DatasetteLite-blue)](https://lite.datasette.io/?metadata=https://raw.githubusercontent.com/swinnoproject/datasette-lite/refs/heads/main/metadata.yml&url=https://zenodo.org/api/records/15215172/files/SINNO.UDIT.sqlite3/content)
+[![](https://img.shields.io/badge/ExploreData-DatasetteLite-blue)](https://lite.datasette.io/?metadata=https://raw.githubusercontent.com/swinnoproject/datasette-lite/refs/heads/main/metadata.yml&url=https://zenodo.org/api/records/15285784/files/SWINNO.UDIT.sqlite3/content)
 <a href="https://creativecommons.org/licenses/by-nc/4.0/"><img decoding="async" loading="eager" src="https://mirrors.creativecommons.org/presskit/buttons/88x31/png/by-nc.png" width="71" height="25" align="right"></a>
 
 
